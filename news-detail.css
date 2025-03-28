@@ -1,0 +1,795 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap');
+
+*{
+        font-family: 'Rubik', sans-serif;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.fixed-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #fff; 
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar .container{
+    padding: 8px 0px;
+}
+
+.navbar .navbar-brand {
+    margin-right: 200px; /* Menü ile logo arasındaki boşluğu artır */
+    margin-left: -120px; /* Logoyu biraz daha sola kaydır */
+}
+
+/* Navbar Linkleri İçin Stil */
+.navbar-nav .nav-link {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #1D1D1B;
+}
+
+/* Navbar Linkleri İçin Boşluk */
+.navbar-nav .nav-item {
+    margin-right: 30px; /* Linkler arasındaki boşluğu artır */
+}
+
+/* Son Link İçin Sağ Boşluğu Kaldır */
+.navbar-nav .nav-item:last-child {
+    margin-right: 0;
+}
+
+
+.navbar .btn-custom {
+    margin-left: 25px; /* TR/EN ile İletişim butonu arasına ekstra boşluk */
+}
+
+/* Aktif (Seçili) Dil */
+.language-switcher .lang-active {
+    font-weight: bold;
+    color: black;
+}
+
+/* Pasif (Seçili Olmayan) Dil */
+.language-switcher .lang-inactive {
+    color: gray;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+/* Dil Değiştirici ile İletişim Butonu Arasındaki Boşluk */
+.language-switcher + .btn-custom {
+    margin-left: 15px; /* Buton ile TR/EN arasındaki boşluğu artır */
+}
+
+.lang-dropdown {
+  display: none;
+  position: absolute; /* önemli! */
+  background-color: white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  z-index: 1000;
+}
+
+.language-switcher.open .lang-dropdown {
+  display: block;
+}
+
+.language-switcher {
+  position: relative;
+  cursor: pointer;
+}
+.lang-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+#whatsapp-icon {
+  position: fixed;
+  bottom: 20px;  /* Sayfanın altına 20px uzaklık */
+  right: 20px;   /* Sayfanın sağ köşesine 20px uzaklık */
+  z-index: 999;  /* Diğer öğelerin üstünde görünmesini sağlamak için */
+}
+
+#whatsapp-icon svg {
+  width: 60px;  /* İkonun boyutunu ayarlayın */
+  height: 60px; /* İkonun boyutunu ayarlayın */
+}
+
+/* İletişim Butonu */
+.btn-custom {
+    width: 118px;
+    height: 43px;
+    border-radius: 4px;
+    background-color: #FA7023;
+    color: white;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    text-align: center;
+    padding: 12px 32px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-custom:hover {
+    background-color: #e6621f;
+    transform: scale(1.05);
+}
+
+/* Tam ekran mobil menü */
+.mobile-menu {
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  z-index: 999;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+/* Menü açıldığında uygulanacak stil */
+.mobile-menu.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Üst çubuk: dil + çarpı */
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+/* Çarpı butonu */
+.close-btn {
+  font-size: 32px;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Menü bağlantıları */
+.mobile-menu-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  flex-grow: 0; /* Yüksekliğe yayılmasın */
+}
+
+.mobile-menu-links li {
+  margin: 20px 0;
+}
+
+.mobile-menu-links a {
+  text-decoration: none;
+  color: #1D1D1B;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.mobile-menu-links a:hover {
+  color: #FA7023; /* Üzerine gelince turuncu */
+}
+
+/* Sosyal medya alanı */
+.mobile-menu-social {
+  margin-top: 40px;
+  text-align: center;
+  color: #aaa;
+  font-size: 16px;
+}
+
+.mobile-menu-social p {
+  margin-bottom: 10px;
+}
+
+.mobile-menu-social .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 22px;
+}
+
+/* Sosyal medya ikonları */
+.mobile-menu-social .social-icons i {
+  color: #bbb;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.mobile-menu-social .social-icons i:hover {
+  color: #FA7023; /* Üzerine gelince turuncu */
+}
+
+/* Dil seçici tıklanabilir */
+.mobile-menu-header .language-switcher {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #1D1D1B;
+}
+
+.mobile-menu-header .language-switcher:hover {
+  color: #FA7023;
+}
+
+.menu-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+
+
+/* Hero Section */
+.hero {
+  position: relative;
+  background: url('img/0ec4dc2a77d9fad3e461d1cd9857ec94.jpeg') no-repeat center center/cover;
+  width: 100%;
+  max-width: 1872px; /* Görsel genişliği tam 1872px olacak */
+  height: 417px !important; /* Görsel yüksekliği tam 417px olacak */
+  margin: 0 auto; /* Sayfanın ortasında tut */
+  display: flex;
+  align-items: center; /* İçeriği dikey olarak ortala */
+  justify-content: center; /* İçeriği yatay olarak da ortala */
+  text-align: center; /* Metinleri ortala */
+  color: #FFFFFF;
+  position: relative;
+}
+
+/* Overlay (Arka Plan Gölgelendirme) */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* İçeriğin üstte kalması için */
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Başlık (H1) Stili */
+.hero h1 {
+  font-weight: 500;
+  font-size: 46px;
+  line-height: 60px;
+  letter-spacing: -3%;
+  margin-bottom: 10px; /* Açıklamayla arasına boşluk ekledik */
+}
+
+/* Açıklama Metni */
+.hero p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: rgba(255, 255, 255, 0.7); /* Daha soluk beyaz */
+  margin-bottom: 0;
+}
+
+.footer {
+  background-color: #1F1F1F;
+  color: white;
+  padding: 40px 0;
+}
+
+.footer-container {
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-logo p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0px;
+  color: #bababa;
+  margin-top: 20px;
+  max-width: 290px;
+}
+
+.footer-links {
+  display: flex;
+  width: 70%;
+  gap: 80px;
+}
+
+.footer-left{
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 180px;
+}
+
+.footer-links div {
+  width: 23%;
+  margin-bottom: 20px;
+}
+
+.footer-links h4 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  margin-bottom: 30px;
+}
+
+.footer-links ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-links li {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* İkon ve metin arasındaki boşluk */
+  margin-bottom: 30px;
+}
+
+.footer-links li svg {
+  flex-shrink: 0; /* İkonun sıkışmasını engeller */
+  width: 24px; /* İkon boyutu */
+  height: 24px;
+}
+
+.footer-links li a {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #bababa;
+  text-decoration: none;
+  flex-grow: 1; /* Linkin daha iyi hizalanmasını sağlar */
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+  .footer-bottom {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #bbb;
+  }
+  
+  .footer-separator {
+    width: 100%;
+    border: none;
+    border-top: 1px solid white;
+    margin-bottom: 10px;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .footer-brand img {
+    height: 24px; /* İsteğe göre boyutlandır */
+  }
+
+  #whatsapp-icon {
+    position: fixed;
+    bottom: 20px;  /* Sayfanın altına 20px uzaklık */
+    right: 20px;   /* Sayfanın sağ köşesine 20px uzaklık */
+    z-index: 999;  /* Diğer öğelerin üstünde görünmesini sağlamak için */
+  }
+  
+  #whatsapp-icon svg {
+    width: 60px;  /* İkonun boyutunu ayarlayın */
+    height: 60px; /* İkonun boyutunu ayarlayın */
+  }
+  
+  .main-title{
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 120%;
+    letter-spacing: 0px;
+    font-weight: bold !important;
+    margin-top: 30px !important;
+  }
+
+  .text-muted{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 197%;
+    letter-spacing: 0px;
+    margin-bottom: 50px;
+  }
+
+  .child-title{
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 120%;
+    letter-spacing: 0px;
+    margin-top: 20px !important;
+  }
+  
+  .news-container{
+    width: 75%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 40px;
+  }
+
+  .col-md-4 .position-relative {
+    max-width: 80%;
+  }
+
+  @media (max-width: 768px) {
+    .navbar .navbar-brand {
+      margin-right: 50px; /* Logo ile menü arasındaki boşluğu daha da küçült */
+      margin-left: -20px; /* Logoyu sola kaydır */
+  }
+
+  .navbar-nav .nav-item {
+      margin-right: 10px; /* Linkler arasındaki boşluğu daha da küçült */
+  }
+
+  .navbar-nav .nav-link {
+      font-size: 12px; /* Link yazı boyutunu daha da küçült */
+  }
+
+  .language-switcher {
+      font-size: 14px; /* Dil seçici font boyutunu küçült */
+  }
+
+  .navbar .btn-custom {
+    align-items: center;
+      }
+
+      .navbar-brand img{
+        margin-left: 18px;
+      }
+
+    .hero h1 {
+      font-size: 32px;
+      line-height: 40px;
+      text-align: center;
+    }
+  
+    .hero p {
+      font-size: 16px;
+      text-align: center;
+    }
+  
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: left;
+    }
+  
+    .footer-container {
+      flex-direction: column;
+      width: 90%;
+      padding: 0 10px;
+    }
+  
+    .footer-left {
+      flex-direction: column;
+      gap: 40px;
+      align-items: flex-start;
+    }
+  
+    .footer-logo p {
+      font-size: 16px;
+      line-height: 24px;
+      max-width: 100%;
+    }
+  
+    .footer-links {
+      flex-direction: column;
+      gap: 30px;
+      width: 100%;
+    }
+  
+    .footer-links div {
+      width: 100%;
+    }
+  
+    .footer-links h4 {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  
+    .footer-links li {
+      font-size: 16px;
+      line-height: 24px;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+  
+    .footer-links li a {
+      font-size: 16px;
+    }
+  
+    .footer-bottom {
+      font-size: 14px;
+      text-align: left;
+    }
+  
+    .footer-content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .footer-brand{
+      margin-left: 150px;
+    }
+  
+    .footer-brand img {
+      height: auto;
+      width: 60%;
+    }
+    
+    .section-main-title {
+      font-size: 32px !important;
+      line-height: 40px !important;
+      text-align: center;
+      justify-content: center;
+    }
+  
+    .section-subtitle {
+      text-align: center;
+    }
+    
+  }
+  
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .navbar .d-flex.align-items-center {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 15px;
+    }
+  
+    .language-switcher {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    .btn-custom {
+      margin-left: 0;
+    }
+    
+    .hero h1 {
+      font-size: 32px;
+      line-height: 40px;
+      text-align: center;
+    }
+  
+    .hero p {
+      font-size: 16px;
+      text-align: center;
+    }
+  
+    .btn-products {
+      display: block;
+      margin: 20px auto;
+    }
+  
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: left;
+    }
+  
+    .footer-container {
+      flex-direction: column;
+      width: 90%;
+      padding: 0 10px;
+    }
+  
+    .footer-left {
+      flex-direction: column;
+      gap: 40px;
+      align-items: flex-start;
+    }
+  
+    .footer-logo p {
+      font-size: 16px;
+      line-height: 24px;
+      max-width: 100%;
+    }
+  
+    .footer-links {
+      flex-direction: column;
+      gap: 30px;
+      width: 100%;
+    }
+  
+    .footer-links div {
+      width: 100%;
+    }
+  
+    .footer-links h4 {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  
+    .footer-links li {
+      font-size: 16px;
+      line-height: 24px;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+  
+    .footer-links li a {
+      font-size: 16px;
+    }
+  
+    .footer-bottom {
+      font-size: 14px;
+      text-align: left;
+    }
+  
+    .footer-content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+  
+    .footer-brand{
+      margin-left: 150px;
+    }
+  
+    .footer-brand img {
+      height: auto;
+      width: 60%;
+    }
+
+    .section-main-title {
+      font-size: 32px !important;
+      line-height: 40px !important;
+      text-align: center;
+      justify-content: center;
+    }
+  
+    .section-subtitle {
+      text-align: center;
+    }
+  }
+
+  @media (max-width : 1450px){
+    .navbar .navbar-brand {
+      margin-right: 50px; /* Logo ile menü arasındaki boşluğu daha da küçült */
+      margin-left: -20px; /* Logoyu sola kaydır */
+  }
+
+  .navbar-nav .nav-item {
+      margin-right: 10px; /* Linkler arasındaki boşluğu daha da küçült */
+  }
+
+  .language-switcher {
+      margin-right: 10px; /* Dil seçici ile buton arasındaki boşluğu daha da azalt */
+  }
+
+  .navbar .btn-custom {
+      margin-left: 10px; /* Buton ile dil seçici arasındaki boşluğu daha da azalt */
+  }
+  
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: left;
+    }
+  
+    .footer-container {
+      flex-direction: column;
+      width: 90%;
+      padding: 0 10px;
+    }
+  
+    .footer-left {
+      flex-direction: column;
+      gap: 40px;
+      align-items: flex-start;
+    }
+  
+    .footer-logo p {
+      font-size: 16px;
+      line-height: 24px;
+      max-width: 100%;
+    }
+  
+    .footer-links {
+      flex-direction: column;
+      gap: 30px;
+      width: 100%;
+    }
+  
+    .footer-links div {
+      width: 100%;
+    }
+  
+    .footer-links h4 {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  
+    .footer-links li {
+      font-size: 16px;
+      line-height: 24px;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+  
+    .footer-links li a {
+      font-size: 16px;
+    }
+  
+    .footer-bottom {
+      font-size: 14px;
+      text-align: left;
+    }
+  
+    .footer-content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+  
+    .footer-brand{
+      margin-left: 150px;
+    }
+  
+    .footer-brand img {
+      height: auto;
+      width: 60%;
+    }
+  }
+  
